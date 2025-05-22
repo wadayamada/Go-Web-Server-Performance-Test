@@ -12,7 +12,7 @@ func main() {
 		func(w http.ResponseWriter, r *http.Request) {
 			if r.Method == http.MethodGet {
 				person := getPerson()
-				fmt.Fprintln(w, person.Name+" "+strconv.Itoa(person.Age))
+				fmt.Fprintln(w, person.Name+" "+strconv.Itoa(person.Age)+" "+person.Description)
 				return
 			}
 			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
