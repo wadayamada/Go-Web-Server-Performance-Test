@@ -4,6 +4,7 @@ COPY go.mod ./
 RUN go mod download
 COPY . .
 ENV CGO_ENABLED=0
+ENV GODEBUG gctrace=1
 RUN go build -o server
 FROM alpine:3.17
 WORKDIR /app
