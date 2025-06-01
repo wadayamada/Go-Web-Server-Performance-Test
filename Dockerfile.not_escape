@@ -4,10 +4,10 @@ COPY go.mod ./
 RUN go mod download
 COPY . .
 ENV CGO_ENABLED=0
-ENV GODEBUG gctrace=1
-RUN go build -o server
+RUN go build not_escape.go print_memory.go
 FROM alpine:3.17
 WORKDIR /app
-COPY --from=builder /app/server /app/
+COPY --from=builder /app/not_escape /app/
 EXPOSE 8081
-CMD ["/app/server"]
+ENV GODEBUG="gctrace=1"
+CMD ["/app/not_escape"]
