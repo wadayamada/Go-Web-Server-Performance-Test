@@ -34,7 +34,7 @@ func parse2(_ [][]byte) {
 	// 実アプリでは CSV パースなどを行う
 }
 
-const (
-	chunkCount = 50_000
-	chunkSize  = 1_024
-)
+//const (
+//	chunkCount = 50_000
+//	chunkSize  = 1_024
+//)

@@ -10,13 +10,17 @@ import (
 
 func bToMB(b uint64) float64 { return float64(b) / 1024.0 / 1024.0 }
 
-func printMemUsage() {
-	var m runtime.MemStats
-	runtime.ReadMemStats(&m)
-	fmt.Printf("Alloc = %.2f MiB", bToMB(m.Alloc))
-	fmt.Printf("\tSys = %.2f MiB", bToMB(m.Sys))
-	fmt.Printf("\tNumGC = %v\n", m.NumGC)
-}
+//func printMemUsage() {
+//	var ms runtime.MemStats
+//	runtime.ReadMemStats(&ms)
+//	fmt.Printf("Process (Go runtime)\n")
+//	fmt.Printf("  Alloc     : %.2f MB\n", float64(ms.Alloc)/1024/1024)
+//	fmt.Printf("  Sys       : %.2f MB\n", float64(ms.Sys)/1024/1024)
+//	fmt.Printf("  HeapAlloc : %.2f MB\n", float64(ms.HeapAlloc)/1024/1024)
+//	fmt.Printf("  HeapSys   : %.2f MB\n", float64(ms.HeapSys)/1024/1024)
+//	fmt.Printf("  NextGC    : %.2f MB\n", float64(ms.NextGC)/1024/1024)
+//	fmt.Printf("  NumGC     : %d\n", ms.NumGC)
+//}
 
 func PersonHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
